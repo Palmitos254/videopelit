@@ -6,12 +6,12 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 
 function App() {
-  const [todo, setTodo] = useState({desc: '', date: '', priority: ''});
+  const [todo, setTodo] = useState({nimi: '', kategoria: '', julkaisuvuosi: ''});
   const [todos, setTodos] = useState([]);
 
   const addTodo = (event) => {
     setTodos([...todos, todo]);
-    setTodo({desc: '', date: '', priority: ''});
+    setTodo({nimi: '', kategoria: '', julkaisuvuosi: ''});
   }
 
   const inputChanged = (event) => {
@@ -19,16 +19,16 @@ function App() {
   } 
 
   const columns = [
-    { field: 'desc', sortable: true, filter: true },
-    { field: 'date', sortable: true, filter: true },
-    { field: 'priority', sortable: true, filter: true },
+    { field: 'nimi', sortable: true, filter: true },
+    { field: 'kategoria', sortable: true, filter: true },
+    { field: 'julkaisuvuosi', sortable: true, filter: true },
   ]
 
   return (
     <div className="App">
-      <input name="desc" value={todo.desc} onChange={inputChanged}/>
-      <input name="date" value={todo.date} onChange={inputChanged}/>
-      <input name="priority" value={todo.priority} onChange={inputChanged}/>
+      <input name="nimi" value={todo.nimi} onChange={inputChanged}/>
+      <input name="kategoria" value={todo.kategoria} onChange={inputChanged}/>
+      <input name="julkaisuvuosi" value={todo.julkaisuvuosi} onChange={inputChanged}/>
       <button onClick={addTodo}>Add</button>
       <div className="ag-theme-material" style={{height: 400, width: 600, margin: 'auto'}}>
         <AgGridReact
